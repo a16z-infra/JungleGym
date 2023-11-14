@@ -1,0 +1,34 @@
+[[pages]]
+path = "Welcome.py"
+name = "Welcome"
+icon = "🏡"
+
+[[pages]]
+name = "Datasets ↓"
+icon = ""
+is_section = true
+
+[[pages]]
+path ="pages/mind2web.py"
+name = "Mind2Web"
+icon = "🧠"
+
+[[pages]]
+path = "pages/webarena.py"
+name = "WebArena"
+icon = "🏟"
+
+[[pages]]
+path = "pages/agent_instruct.py"
+name = "AgentInstruct"
+icon = "👾"
+
+[[pages]]
+name = "Tools ↓"
+icon = ""
+is_section = true
+
+[[pages]]
+path = "pages/treevoyager.py"
+name = "TreeVoyager (DOM Parser)"
+icon = "🌳"

@@ -1,0 +1,9 @@
+aux_files/
+babyagi/
+skill_classification.py
+*.ipynb
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+.venv
+screenshots/
+.DS_Store

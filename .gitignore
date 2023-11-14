@@ -1,0 +1,6 @@
+aux_files/
+babyagi/
+skill_classification.py
+*.ipynb
+.ipynb_checkpoints/
+*.ipynb_checkpoints
