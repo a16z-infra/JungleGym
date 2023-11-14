@@ -33,7 +33,7 @@ For the full documentation, you can read the [JungleGym Docs here](https://docs.
 
 This Github repo structure is broken down into two main components: 
 1. JungleGym (the JungleGym folder) is a Streamlit app to visualize the web agent datasets, trajectories, steps, and web snapshots and to download the agent datasets.
-2. TreeVoyager (the TreeVoyager folder) - The LLM-based DOM parser.
+2. TreeVoyager (the TreeVoyager folder) - The LLM-based DOM parser described above in step 4.
 
 ---
 
