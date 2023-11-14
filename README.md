@@ -15,13 +15,6 @@ https://github.com/a16z-infra/JungleGym/assets/5958899/db0d6613-e95e-48c7-98ee-c
 
 JungleGym is an open-source playground for testing and developing autonomous web agents. Here, you can download demonstration data, test your agents with ground-truth trajectories (using the JungleGym APIs), and test your web agents. These Datasets are all available in the JungleGym API and in the [JungleGym](https://junglegym.ai) playground, including 6 fully functional emulated websites (from WebArena) to test your Agents.
 
-This repo is broken down into three main components: 
-1. JungleGym (the JungleGym folder) is a Streamlit app to visualize the web agent datasets, trajectories, steps, and web snapshots and to download the agent datasets. You can use these Web Demonstration Datasets to train your LLMs or to test your Agents. You can see it on the official [JungleGym website.](https://junglegym.ai)
-2. TreeVoyager (the TreeVoyager folder) - An LLM-based DOM parser designed to implement some principles from the papers ['Tree of Thoughts'](https://arxiv.org/abs/2305.10601) (ToT) and ['Minecraft's Voyager'](https://arxiv.org/abs/2305.16291) to parse, generate curriculum, select HTML IDs, generate paths, create skills (memory) and suggested code for the steps required in a web agent trajectory.
-3. The APIs server for the web agent datasets Mind2Web, WebArena, AgentInstruct, and Treevoyager. You can use these APIs to get ground truths to test your Agents.
-
-
-
 ### ✅ JungleGym Main Features:
 
 We're hosting 3 web agent datasets: Mind2Web, WebArena and AgentInstruct.
@@ -37,6 +30,11 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena and AgentInstruct.
 5. APIs for all Web Agent Datasets & TreeVoyager: JungleGym provides APIs for these three datasets and TreeVoyager. You can use these APIs to test ground-truths with your agent trajectories and you can use TreeVoyager for parsing the DOM with the suggested code (with Python's Selenium).
 
 For the full documentation, you can read the [JungleGym Docs here](https://docs.junglegym.ai/junglegym/junglegym-ai-overview).
+
+This Github repo structure is broken down into three main components: 
+1. JungleGym (the JungleGym folder) is a Streamlit app to visualize the web agent datasets, trajectories, steps, and web snapshots and to download the agent datasets. You can use these Web Demonstration Datasets to train your LLMs or to test your Agents. You can see it on the official [JungleGym website.](https://junglegym.ai)
+2. TreeVoyager (the TreeVoyager folder) - An LLM-based DOM parser designed to implement some principles from the papers ['Tree of Thoughts'](https://arxiv.org/abs/2305.10601) (ToT) and ['Minecraft's Voyager'](https://arxiv.org/abs/2305.16291) to parse, generate curriculum, select HTML IDs, generate paths, create skills (memory) and suggested code for the steps required in a web agent trajectory.
+3. The APIs server for the web agent datasets Mind2Web, WebArena, AgentInstruct, and Treevoyager. You can use these APIs to get ground truths to test your Agents.
 
 ---
 
