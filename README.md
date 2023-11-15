@@ -55,12 +55,39 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
    ```
 
 3. WebArena: A task dataset and 6 realistic, fully functional, sandboxed websites. Good for deep testing of many tasks and paths on a single site.
+   Here is an example of how to get a WebArena task result (unlike Mind2Web which shows every step in the DOM, WebArena only shows the final ground truth response):
+   ```python
+   import requests
+   import json
+   """
+   Get the task from the WebArena dataset page in junglegym.ai/WebArena (or from the API)
+   Task details:
+   Website = 'http://shop.junglegym.ai' (WebArena sandboxed emulated shopping website)
+   Task = "What is the price range for products from ugreen?"
+   """
+   
+   WebArena_task = 'What is the price range for products from ugreen?'
+   # WebArena API's endpoint to get ground truth result given a task:
+   url = f"http://api.junglegym.ai/get_webarena_by_task?task={WebArena_task}"
+   # Send the GET request
+   response = requests.get(url)
+   # Check if the request was successful
+   if response.status_code == 200:
+     data = response.json()
+   else:
+     print(f"Failed to get data: {response.status_code}")
+   
+   print(
+       data['data'][0]['eval']['reference_answers']['must_include']
+   )  # -> This will give the final ground truth result for the task. In this case for this task: ['6.99', '38.99']
+   ```
+   
 
-4. AgentInstruct: ~1.8k agent trajectories designed for fine-tuning language models (i.e. llama2) on agent tasks. It was introduced with [AgentTuning](https://arxiv.org/abs/2310.12823).
+5. AgentInstruct: ~1.8k agent trajectories designed for fine-tuning language models (i.e. llama2) on agent tasks. It was introduced with [AgentTuning](https://arxiv.org/abs/2310.12823).
 
-5. TreeVoyager: An LLM-based (GPT-4 Turbo) DOM parser designed to implement some principles from the papers ['Tree of Thoughts'](https://arxiv.org/abs/2305.10601) (ToT) and ['Minecraft's Voyager'](https://arxiv.org/abs/2305.16291) to parse, generate curriculum, select HTML IDs, generate paths, and create skills (memory) for the steps required in the agent trajectory. Note: this is still in very early development, and we would be keen to hear your feedback or contributions.
+6. TreeVoyager: An LLM-based (GPT-4 Turbo) DOM parser designed to implement some principles from the papers ['Tree of Thoughts'](https://arxiv.org/abs/2305.10601) (ToT) and ['Minecraft's Voyager'](https://arxiv.org/abs/2305.16291) to parse, generate curriculum, select HTML IDs, generate paths, and create skills (memory) for the steps required in the agent trajectory. Note: this is still in very early development, and we would be keen to hear your feedback or contributions.
 
-6. APIs for all Web Agent Datasets & TreeVoyager: JungleGym provides APIs for these three datasets and TreeVoyager. You can use these APIs to test ground-truths with your agent trajectories and you can use TreeVoyager for parsing the DOM with the suggested code (with Python's Selenium).
+7. APIs for all Web Agent Datasets & TreeVoyager: JungleGym provides APIs for these three datasets and TreeVoyager. You can use these APIs to test ground-truths with your agent trajectories and you can use TreeVoyager for parsing the DOM with the suggested code (with Python's Selenium).
 
 For the full documentation, you can read the [JungleGym Docs here](https://docs.junglegym.ai/junglegym/junglegym-ai-overview).
 
