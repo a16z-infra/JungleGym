@@ -20,9 +20,11 @@ JungleGym is an open-source playground for testing and developing autonomous web
 We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
 
 1. Mind2Web: Ground truth for ~2k tasks across 137 websites, including full HTML page states and screenshots. Good for broad testing and development across a range of sites and tasks.
-   Here is how you can use the Mind2Web Dataset API to test your Agent with the ground truth. You can find the website, task, and annotation ID in [JungleGym](https://junglegym.ai/Mind2Web). Here is the full Mind2Web [API endpoints Documentation](https://docs.junglegym.ai/junglegym/api-documentation/mind2web-api)
+   Here is how you can use the Mind2Web Dataset API to test your Agent with the ground truth. You can find the website, task, and annotation ID in [JungleGym](https://junglegym.ai/Mind2Web).
+
+   Full Mind2Web [API endpoints Documentation](https://docs.junglegym.ai/junglegym/api-documentation/mind2web-api)
    
-   Here is an example to get the ground truth actions for one task to compare your agent with. ([one click run in Replit](https://replit.com/@mmascorro1/Example-of-how-to-use-the-Mind2Web-Dataset?v=1)):
+   Here is an example to get the ground truth actions of one task to compare your agent with. ([one click run in Replit](https://replit.com/@mmascorro1/Example-of-how-to-use-the-Mind2Web-Dataset?v=1)):
    ```python
    import requests
    import json
