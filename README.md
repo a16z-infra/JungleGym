@@ -24,7 +24,7 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
 
    Full Mind2Web [API endpoints docs](https://docs.junglegym.ai/junglegym/api-documentation/mind2web-api)
    
-   Here is an example to get the ground truth actions of one task to compare your agent with. ([one click run in Replit](https://replit.com/@mmascorro1/Example-of-how-to-use-the-Mind2Web-Dataset?v=1)):
+   Here is an example to get the ground truth actions of one task to compare your agent with. ([One click run in Replit](https://replit.com/@mmascorro1/Example-of-how-to-use-the-Mind2Web-Dataset?v=1)):
    ```python
    import requests
    import json
