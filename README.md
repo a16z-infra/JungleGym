@@ -84,6 +84,7 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct to tes
 
 
 ---
+## Additional Resources:
 
 #### 🌲 TreeVoyager in-depth:
 
