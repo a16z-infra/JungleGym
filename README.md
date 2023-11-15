@@ -59,7 +59,7 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
    
    Full WebArena [API endpoints docs](https://docs.junglegym.ai/junglegym/api-documentation/webarena-api).
    
-   Here is an example of how to get a WebArena task result (unlike Mind2Web which shows every step in the DOM, WebArena only shows the final ground truth response):
+   Here is an example of how to get a WebArena task result (unlike Mind2Web which shows every step in the DOM, WebArena only shows the final ground truth response). [One click run in Replit](https://replit.com/@mmascorro1/WebArena-API-Task-Example?v=1):
    ```python
    import requests
    import json
@@ -90,13 +90,6 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
 5. AgentInstruct: ~1.8k agent trajectories designed for fine-tuning language models (i.e. llama2) on agent tasks. It was introduced with [AgentTuning](https://arxiv.org/abs/2310.12823).
 
 6. TreeVoyager: An LLM-based (GPT-4 Turbo) DOM parser designed to implement some principles from the papers ['Tree of Thoughts'](https://arxiv.org/abs/2305.10601) (ToT) and ['Minecraft's Voyager'](https://arxiv.org/abs/2305.16291) to parse, generate curriculum, select HTML IDs, generate paths, and create skills (memory) for the steps required in the agent trajectory. Note: this is still in very early development, and we would be keen to hear your feedback or contributions.
-
-7. APIs for all Web Agent Datasets & TreeVoyager: JungleGym provides APIs for these three datasets and TreeVoyager. You can use these APIs to test ground-truths with your agent trajectories and you can use TreeVoyager for parsing the DOM with the suggested code (with Python's Selenium).
-
-For the full documentation, you can read the [JungleGym Docs here](https://docs.junglegym.ai/junglegym/junglegym-ai-overview).
-
-Here how you can use the Datasets with the API to test your agents:
-
 
 
 ---
