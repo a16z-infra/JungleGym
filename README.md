@@ -40,12 +40,7 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
    # Mind2Web API's endpoint to get ground truth for the list of actions given a task/annotation ID:
    url = f"http://api.junglegym.ai/get_list_of_actions?annotation_id={task_annotation_id}"
    response = requests.get(url)
-   
-   # Check if the request was successful:
-   if response.status_code == 200:
-      data = response.json()
-   else:
-      print(f"Failed to get data: {response.status_code}")
+   data = response.json()
    
    print("Number of total steps to accomplish this task:", len(data['action_reprs']))
    
@@ -75,12 +70,8 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
    url = f"http://api.junglegym.ai/get_webarena_by_task?task={WebArena_task}"
    # Send the GET request
    response = requests.get(url)
-   # Check if the request was successful
-   if response.status_code == 200:
-     data = response.json()
-   else:
-     print(f"Failed to get data: {response.status_code}")
-   
+   data = response.json()
+      
    print(
        data['data'][0]['eval']['reference_answers']['must_include']
    )  # -> This will give the final ground truth result for the task to compare with your Web agent's response. In this case for this task: ['6.99', '38.99']
