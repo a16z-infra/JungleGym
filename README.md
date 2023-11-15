@@ -24,27 +24,32 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena and AgentInstruct.
    Here is an example:
    ```python
     import requests
-    import json
-    # Website = 'https://www.kohls.com'
-    # Task = "Add the cheapest Women's Sweaters to my shopping cart."
-    # Get the annotation ID from the Mind2Web dataset page in JungleGym.ai
-    annotation_id = '4bc70fa1-e817-405f-b113-0919e8e94205'
-    
-    # API endpoint to get ground truth for the list of actions given an task/annotation ID:
-    url = f"http://api.junglegym.ai/get_list_of_actions?annotation_id={annotation_id}"
-    response = requests.get(url)
-    
-    # Check if the request was successful:
-    if response.status_code == 200:
-        # Process the response here
-        data = response.json()
-    else:
-        print(f"Failed to get data: {response.status_code}")
+   import json
    
-   data['action_reprs'][0] #-> This is the list of ground truth actions you should compare your agent with. In this case, the first list element is: '[span]  Shop by Category -> CLICK'
-
-   data['actions'][0]['pos_candidates'] #-> These are the extended DOM elements of the first action.
-```
+   """
+   Task details:
+   Website = 'https://www.kohls.com'
+   Task = "Add the cheapest Women's Sweaters to my shopping cart."
+   Get the task annotation ID from the Mind2Web dataset page in JungleGym.ai (or from the API)
+   """
+   task_annotation_id = '4bc70fa1-e817-405f-b113-0919e8e94205'
+   
+   # Mind2Web API's endpoint to get ground truth for the list of actions given a task/annotation ID:
+   url = f"http://api.junglegym.ai/get_list_of_actions?annotation_id={task_annotation_id}"
+   response = requests.get(url)
+   
+   # Check if the request was successful:
+   if response.status_code == 200:
+      data = response.json()
+   else:
+      print(f"Failed to get data: {response.status_code}")
+   
+   print("Number of total steps to accomplish this task:", len(data['action_reprs']))
+   
+   print ("Ground truth step action:", data['action_reprs'][0])#-> This is the list of ground truth actions you should compare your agent with.
+   
+   print ("HTML Element data for this step:", data['actions'][0]['pos_candidates'])#-> These are the extended DOM elements of the first action.
+   ```
 
 3. WebArena: A task dataset and 6 realistic, fully functional, sandboxed websites. Good for deep testing of many tasks and paths on a single site.
 
