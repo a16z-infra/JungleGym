@@ -24,7 +24,7 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
 
    Full Mind2Web [API endpoints docs](https://docs.junglegym.ai/junglegym/api-documentation/mind2web-api)
    
-   Here is an example to get the ground truth actions of one task to compare your agent with. ([One click run in Replit](https://replit.com/@mmascorro1/Example-of-how-to-use-the-Mind2Web-Dataset?v=1)):
+   Here is an example to get the ground truth actions of one task to compare your agent with ([one click run in Replit](https://replit.com/@mmascorro1/Example-of-how-to-use-the-Mind2Web-Dataset?v=1)):
    ```python
    import requests
    import json
@@ -59,7 +59,7 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
    
    Full WebArena [API endpoints docs](https://docs.junglegym.ai/junglegym/api-documentation/webarena-api).
    
-   Here is an example of how to get a WebArena task result (unlike Mind2Web which shows every step in the DOM, WebArena only shows the final ground truth response). [One click run in Replit](https://replit.com/@mmascorro1/WebArena-API-Task-Example?v=1):
+   Here is an example of how to get a WebArena task result. Unlike Mind2Web which shows every step in the DOM, WebArena only shows the final ground truth response [one click run in Replit](https://replit.com/@mmascorro1/WebArena-API-Task-Example?v=1):
    ```python
    import requests
    import json
