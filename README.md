@@ -13,7 +13,7 @@ https://github.com/a16z-infra/JungleGym/assets/5958899/db0d6613-e95e-48c7-98ee-c
 
 ## 🧠 Project Overview:
 
-JungleGym is an open-source playground for testing and developing autonomous web agents. Here, you can download demonstration data, test your agents with ground-truth trajectories (using the JungleGym APIs), and test your web agents. These Datasets are all available in the JungleGym API and in the [JungleGym](https://junglegym.ai) playground, including 6 fully functional emulated websites (from WebArena) to test your Agents.
+JungleGym is an open-source playground for testing and developing autonomous web agents. Here, you can download demonstration data and test your agents with ground-truth trajectories (using the JungleGym APIs). These Datasets are all available in the JungleGym API and in the [JungleGym](https://junglegym.ai) playground, including 6 fully functional emulated websites (from WebArena) to test your Agents.
 
 ### ✅ JungleGym Main Features:
 
@@ -23,7 +23,7 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena and AgentInstruct.
    Here how you can use the Mind2Web Dataset API to test you Agent with the ground truth. You can find the website, task, and annotation ID in JungleGym.ai (also available in the API).
    Here is an example:
    ```python
-    import requests
+   import requests
    import json
    
    """
