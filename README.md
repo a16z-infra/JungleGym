@@ -22,7 +22,7 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
 1. Mind2Web: Ground truth for ~2k tasks across 137 websites, including full HTML page states and screenshots. Good for broad testing and development across a range of sites and tasks.
    Here is how you can use the Mind2Web Dataset API to test your Agent with the ground truth. You can find the website, task, and annotation ID in JungleGym.ai (also available in the API).
    
-   Here is a code example with one task (<a href="https://replit.com/@mmascorro1/Example-of-how-to-use-the-Mind2Web-Dataset?v=1" target="_blank">one click run in Replit</a>):
+   Here is a code example with one task ([one click run in Replit](https://replit.com/@mmascorro1/Example-of-how-to-use-the-Mind2Web-Dataset?v=1)):
    ```python
    import requests
    import json
