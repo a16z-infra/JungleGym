@@ -22,7 +22,7 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct to tes
 1. Mind2Web: Ground truth for ~2k tasks across 137 websites, including full HTML page states and screenshots. Good for broad testing and development across a range of sites and tasks.
    Here is how you can use the Mind2Web Dataset API to test your Agent with the ground truth. You can find the website, task, and annotation ID in [JungleGym](https://junglegym.ai/Mind2Web) or in the API.
 
-   Full Mind2Web [API endpoints docs](https://docs.junglegym.ai/junglegym/api-documentation/mind2web-api)
+   Mind2Web [API endpoints docs](https://docs.junglegym.ai/junglegym/api-documentation/mind2web-api)
    
    Here is an example to get the ground truth actions of one task to compare your agent with. ([One click run in Replit](https://replit.com/@mmascorro1/Example-of-how-to-use-the-Mind2Web-Dataset?v=1)):
    ```python
@@ -52,7 +52,7 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct to tes
 3. WebArena: A task dataset and 6 realistic, fully functional, sandboxed websites. Good for deep testing of many tasks and paths on a single site.
    You can find a website, task, and task_id in [JungleGym](https://junglegym.ai/WebArena) or in the API.
    
-   Full WebArena [API endpoints docs](https://docs.junglegym.ai/junglegym/api-documentation/webarena-api).
+   WebArena [API endpoints docs](https://docs.junglegym.ai/junglegym/api-documentation/webarena-api).
    
    Here is an example of how to get a WebArena task result. Unlike Mind2Web which shows every step in the DOM, WebArena only shows the final ground truth response. ([One click run in Replit](https://replit.com/@mmascorro1/WebArena-API-Task-Example?v=1)):
    ```python
