@@ -20,40 +20,45 @@ JungleGym is an open-source playground for testing and developing autonomous web
 We're hosting 3 web agent datasets: Mind2Web, WebArena and AgentInstruct.
 
 1. Mind2Web: Ground truth for ~2k tasks across 137 websites, including full HTML page states and screenshots. Good for broad testing and development across a range of sites and tasks.
+   Here how you can use the Mind2Web Dataset API to test you Agent with the ground truth. You can find the website, task, and annotation ID in JungleGym.ai (also available in the API).
+   Here is an example:
+   ```python
+    import requests
+    import json
+    # Website = 'https://www.kohls.com'
+    # Task = "Add the cheapest Women's Sweaters to my shopping cart."
+    # Get the annotation ID from the Mind2Web dataset page in JungleGym.ai
+    annotation_id = '4bc70fa1-e817-405f-b113-0919e8e94205'
+    
+    # API endpoint to get ground truth for the list of actions given an task/annotation ID:
+    url = f"http://api.junglegym.ai/get_list_of_actions?annotation_id={annotation_id}"
+    response = requests.get(url)
+    
+    # Check if the request was successful:
+    if response.status_code == 200:
+        # Process the response here
+        data = response.json()
+    else:
+        print(f"Failed to get data: {response.status_code}")
+   
+   data['action_reprs'][0] #-> This is the list of ground truth actions you should compare your agent with. In this case, the first list element is: '[span]  Shop by Category -> CLICK'
 
-2. WebArena: A task dataset and 6 realistic, fully functional, sandboxed websites. Good for deep testing of many tasks and paths on a single site.
+   data['actions'][0]['pos_candidates'] #-> These are the extended DOM elements of the first action.
+```
 
-3. AgentInstruct: ~1.8k agent trajectories designed for fine-tuning language models (i.e. llama2) on agent tasks. It was introduced with [AgentTuning](https://arxiv.org/abs/2310.12823).
+3. WebArena: A task dataset and 6 realistic, fully functional, sandboxed websites. Good for deep testing of many tasks and paths on a single site.
 
-4. TreeVoyager: An LLM-based (GPT-4 Turbo) DOM parser designed to implement some principles from the papers ['Tree of Thoughts'](https://arxiv.org/abs/2305.10601) (ToT) and ['Minecraft's Voyager'](https://arxiv.org/abs/2305.16291) to parse, generate curriculum, select HTML IDs, generate paths, and create skills (memory) for the steps required in the agent trajectory. Note: this is still in very early development, and we would be keen to hear your feedback or contributions.
+4. AgentInstruct: ~1.8k agent trajectories designed for fine-tuning language models (i.e. llama2) on agent tasks. It was introduced with [AgentTuning](https://arxiv.org/abs/2310.12823).
 
-5. APIs for all Web Agent Datasets & TreeVoyager: JungleGym provides APIs for these three datasets and TreeVoyager. You can use these APIs to test ground-truths with your agent trajectories and you can use TreeVoyager for parsing the DOM with the suggested code (with Python's Selenium).
+5. TreeVoyager: An LLM-based (GPT-4 Turbo) DOM parser designed to implement some principles from the papers ['Tree of Thoughts'](https://arxiv.org/abs/2305.10601) (ToT) and ['Minecraft's Voyager'](https://arxiv.org/abs/2305.16291) to parse, generate curriculum, select HTML IDs, generate paths, and create skills (memory) for the steps required in the agent trajectory. Note: this is still in very early development, and we would be keen to hear your feedback or contributions.
+
+6. APIs for all Web Agent Datasets & TreeVoyager: JungleGym provides APIs for these three datasets and TreeVoyager. You can use these APIs to test ground-truths with your agent trajectories and you can use TreeVoyager for parsing the DOM with the suggested code (with Python's Selenium).
 
 For the full documentation, you can read the [JungleGym Docs here](https://docs.junglegym.ai/junglegym/junglegym-ai-overview).
 
 Here how you can use the Datasets with the API to test your agents:
 
-```python
-import requests
-import json
-# Website = 'https://www.kohls.com'
-# Task = "Add the cheapest Women's Sweaters to my shopping cart."
-# Get the annotation id from the Mind2Web dataset page in JungleGym.ai
-annotation_id = '4bc70fa1-e817-405f-b113-0919e8e94205'
 
-# Construct the URL to get the ground truth for the list of actions given an annotation ID:
-url = f"http://api.junglegym.ai/get_list_of_actions?annotation_id={annotation_id}"
-
-# Send the GET request
-response = requests.get(url)
-
-# Check if the request was successful
-if response.status_code == 200:
-    # Process the response here
-    data = response.json()
-else:
-    print(f"Failed to get data: {response.status_code}")
-```
 
 ---
 
