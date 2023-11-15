@@ -30,10 +30,10 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
    import json
    
    """
+   Get the task annotation ID from the Mind2Web dataset page in junglegym.ai/Mind2Web (or from the API)
    Task details:
    Website = 'https://www.kohls.com'
    Task = "Add the cheapest Women's Sweaters to my shopping cart."
-   Get the task annotation ID from the Mind2Web dataset page in junglegym.ai/Mind2Web (or from the API)
    """
    task_annotation_id = '4bc70fa1-e817-405f-b113-0919e8e94205'
    
