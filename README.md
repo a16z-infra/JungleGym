@@ -20,7 +20,7 @@ JungleGym is an open-source playground for testing and developing autonomous web
 We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
 
 1. Mind2Web: Ground truth for ~2k tasks across 137 websites, including full HTML page states and screenshots. Good for broad testing and development across a range of sites and tasks.
-   Here is how you can use the Mind2Web Dataset API to test your Agent with the ground truth. You can find the website, task, and annotation ID in [JungleGym](https://junglegym.ai/Mind2Web).
+   Here is how you can use the Mind2Web Dataset API to test your Agent with the ground truth. You can find the website, task, and annotation ID in [JungleGym](https://junglegym.ai/Mind2Web) or in the API.
 
    Full Mind2Web [API endpoints docs](https://docs.junglegym.ai/junglegym/api-documentation/mind2web-api)
    
@@ -55,6 +55,10 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
    ```
 
 3. WebArena: A task dataset and 6 realistic, fully functional, sandboxed websites. Good for deep testing of many tasks and paths on a single site.
+   You can find a website, task, and task_id in [JungleGym](https://junglegym.ai/WebArena) or in the API.
+   
+   Full WebArena [API endpoints docs](https://docs.junglegym.ai/junglegym/api-documentation/webarena-api).
+   
    Here is an example of how to get a WebArena task result (unlike Mind2Web which shows every step in the DOM, WebArena only shows the final ground truth response):
    ```python
    import requests
@@ -62,7 +66,7 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
    """
    Get the task from the WebArena dataset page in junglegym.ai/WebArena (or from the API)
    Task details:
-   Website = 'http://shop.junglegym.ai' (WebArena sandboxed emulated shopping website)
+   Website = 'http://shop.junglegym.ai' (WebArena's sandboxed emulated shopping website)
    Task = "What is the price range for products from ugreen?"
    """
    
@@ -79,7 +83,7 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
    
    print(
        data['data'][0]['eval']['reference_answers']['must_include']
-   )  # -> This will give the final ground truth result for the task. In this case for this task: ['6.99', '38.99']
+   )  # -> This will give the final ground truth result for the task to compare with your Web agent's response. In this case for this task: ['6.99', '38.99']
    ```
    
 
