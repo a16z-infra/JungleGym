@@ -49,7 +49,7 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
    
    print("Number of total steps to accomplish this task:", len(data['action_reprs']))
    
-   print ("Ground truth step action:", data['action_reprs'][0])#-> This is the list of ground truth actions you should compare your agent with.
+   print ("Ground truth action for first step:", data['action_reprs'][0])#-> This is the list of ground truth actions you should compare your agent with.
    
    print ("HTML Element data for this step:", data['actions'][0]['pos_candidates'])#-> These are the extended DOM elements of the first action.
    ```
