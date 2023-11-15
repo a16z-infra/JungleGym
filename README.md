@@ -31,9 +31,29 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena and AgentInstruct.
 
 For the full documentation, you can read the [JungleGym Docs here](https://docs.junglegym.ai/junglegym/junglegym-ai-overview).
 
-This Github repo structure is broken down into two main components: 
-1. JungleGym (the JungleGym folder) is a Streamlit app to visualize the web agent datasets, trajectories, steps, and web snapshots and to download the agent datasets.
-2. TreeVoyager (the TreeVoyager folder) - The LLM-based DOM parser described above in step 4.
+Here how you can use the Datasets with the API to test your agents:
+
+```python
+import requests
+import json
+# Website = 'https://www.kohls.com'
+# Task = "Add the cheapest Women's Sweaters to my shopping cart."
+# Get the annotation id from the Mind2Web dataset page in JungleGym.ai
+annotation_id = '4bc70fa1-e817-405f-b113-0919e8e94205'
+
+# Construct the URL to get the ground truth for the list of actions given an annotation ID:
+url = f"http://api.junglegym.ai/get_list_of_actions?annotation_id={annotation_id}"
+
+# Send the GET request
+response = requests.get(url)
+
+# Check if the request was successful
+if response.status_code == 200:
+    # Process the response here
+    data = response.json()
+else:
+    print(f"Failed to get data: {response.status_code}")
+```
 
 ---
 
