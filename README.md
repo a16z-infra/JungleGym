@@ -59,7 +59,7 @@ We're hosting 3 web agent datasets: Mind2Web, WebArena, and AgentInstruct.
    
    Full WebArena [API endpoints docs](https://docs.junglegym.ai/junglegym/api-documentation/webarena-api).
    
-   Here is an example of how to get a WebArena task result. Unlike Mind2Web which shows every step in the DOM, WebArena only shows the final ground truth response [one click run in Replit](https://replit.com/@mmascorro1/WebArena-API-Task-Example?v=1):
+   Here is an example of how to get a WebArena task result. Unlike Mind2Web which shows every step in the DOM, WebArena only shows the final ground truth response ([one click run in Replit](https://replit.com/@mmascorro1/WebArena-API-Task-Example?v=1)):
    ```python
    import requests
    import json
