@@ -78,18 +78,17 @@ def welcome():
 
     st.markdown(
     """
-    JungleGym is an open source playground for testing and developing autonomous web agents.
-    Here, you can download demonstration data, test your agents with ground-truth trajectories (using the JungleGym APIs), and design your web agents.
-    These Datasets are all available in the [JungleGym API](https://docs.junglegym.ai/junglegym/junglegym-ai-overview)
-        and in this playground, using the links to the left.
+    JungleGym is an open source playground for testing and developing autonomous web agents. This is not an Agent, but rather a tool to test and build agents with datasets.
+    Here, you can download demonstration data, test your agents with ground-truth web trajectories (using the JungleGym APIs), and design your agents.
+    These Datasets are available in the APIs with examples in the [JungleGym Repo](https://github.com/a16z-infra/JungleGym) and in this playground, using the links to the left.
 
     We're hosting 3 datasets:
     - **Mind2Web**: Ground truth for ~2k tasks across 137 websites, including full HTML page states and screenshots. Good for *broad* testing and development across a range of sites and tasks.
     - **WebArena**: 6 realistic, fully functional, sandboxed web sites. Good for *deep* testing of many tasks and paths on a single site.
-    - **AgentInstruct**: ~1.8k agent trajectories designed for fine-tuning language models (i.e. llama2) on agent tasks.
+    - **AgentInstruct**: ~1.8k agent trajectories designed for fine-tuning language models (i.e. LLaMA2, Mistral, etc) on agent tasks.
 
     We're also sharing one tool:
-    - **TreeVoyager**: An LLM-based DOM parser that preserved element IDs and suggests agent curriculums.
+    - **TreeVoyager**: An LLM-based DOM parser that returns the best URL HTML/DOM element to interact with given a task (e.g. 'buy coffee').
     We found this to be a hard problem for properly parsing websites for web agents, so we're sharing our (partial) solution.
     """)
     
@@ -97,12 +96,12 @@ def welcome():
         """
             ### Why are we doing this?
 
-            We wanted to make our minor open source contribution to the field of autonomous agents. This is a very early prototype version still in development and we would love your feedback!
-            Currently, there's no standardized way to benchmark web agents, and datasets and tools are too sparse on the web. These agents operate in the wild web, but clear metrics, datasets, and insights into their effectiveness are lacking.
+            We wanted to make our minor open source contribution to the field of autonomous agents. This is a very early prototype version still in development.
+            There's no standardized way to benchmark web agents, and datasets and tools are too sparse on the web. These agents operate in the wild web, but clear metrics, datasets, and insights into their effectiveness are lacking.
 
-            Although we're in the early stages, we hope this helps agent builders and developers test, benchmark, and explore datasets to continue the advancement in the field.
+            It's early, and we hope this helps agent builders and developers test, benchmark, and explore datasets to continue the advancement in the field.
             
-            Please share any feedback or suggestions. We'd love to hear from you! And please contribute via the [Github repo](https://github.com/a16z-infra/JungleGym).
+            Please share any feedback or suggestions and please contribute via the [Github repo](https://github.com/a16z-infra/JungleGym).
 
         """)
 

@@ -18,7 +18,7 @@ def sidebar_footer():
     sidebar = st.sidebar
     sidebar.header('**Resources:**')
     sidebar.markdown("<a style='text-decoration:none;' href='https://github.com/a16z-infra/JungleGym'><font size=3>GitHub Repo</font></a>", unsafe_allow_html=True)
-    sidebar.markdown("<a style='text-decoration:none;' href='https://docs.junglegym.ai/junglegym/junglegym-ai-overview'><font size=3>Documentation</font></a>", unsafe_allow_html=True)
+    sidebar.markdown("<a style='text-decoration:none;' href='https://docs.junglegym.ai/junglegym/junglegym-ai-overview'><font size=3>API Documentation</font></a>", unsafe_allow_html=True)
     sidebar.markdown("<a style='text-decoration:none;' href='https://arxiv.org/abs/2306.06070'><font size=3>Mind2Web Paper</font></a>", unsafe_allow_html=True)
     sidebar.markdown("<a style='text-decoration:none;' href='https://arxiv.org/abs/2307.13854'><font size=3>WebArena Paper</font></a>", unsafe_allow_html=True)
     sidebar.markdown("<a style='text-decoration:none;' href='https://arxiv.org/abs/2310.12823'><font size=3>AgentTuning Paper</font></a>", unsafe_allow_html=True)

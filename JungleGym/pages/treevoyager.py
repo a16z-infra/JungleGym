@@ -39,11 +39,11 @@ One of the hard problems with web agents is reliably parsing the HTML DOM.
 There is no standard protocol yet that allows agents to interact with the web - each agent parses the DOM in a bespoke way.
 Using normal prompting strategies, most LLMs hallucinate DOM entity details and don't consistently associate elements with correct actions.
 
-We developed TreeVoyager to make progress on this problem. This is just one way of many to mitigate the problem. To learn how TreeVoyager works, check out the [documentation](https://docs.junglegym.ai/junglegym/api-documentation/treevoyager-api).
+We developed TreeVoyager to make progress on this problem. This is not an Agent, it's just a tool to mitigate the problem. To learn how TreeVoyager works, check out the [Github Repo](https://github.com/a16z-infra/JungleGym).
 \nThis version uses GPT-4 Turbo 128K and it implements some principles from the [Tree of Thoughts](https://arxiv.org/abs/2305.10601) (ToT) and [Minecraft's Voyager](https://voyager.minedojo.org/) papers.
 Given a web page and a task as input, it can:
 - Parse the DOM
-- Generate curriculum (i.e. candidate actions)
+- Generate curriculum (i.e. a plan of actions)
 - Select correct HTML IDs
 - Generate paths
 - Create skills (memory) for the steps required in the agent trajectory.

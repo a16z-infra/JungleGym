@@ -105,7 +105,7 @@ st.subheader('How to Use It')
 
 st.write('''
 We mirror 6 WebArena environments as part of Junglegym.
-You can point a web agent at these mirrors and do whatever you want - no auth, rate limits, risk of spending real money, etc.
+You can point a web agent at these mirrors and do whatever you want - no rate limits, risk of spending real money, etc.
 
 WebArena also includes a set of sample tasks for each web site, accessible via the [JungleGym API](https://docs.junglegym.ai/junglegym/junglegym-ai-overview).
 These are just examples; you can run any task you'd like against the WebArena mirrors, including via [TreeVoyager](/TreeVoyager).
@@ -116,10 +116,10 @@ st.subheader('Try it!')
 st.write('''
 Here are the web sites we mirror as part of Junglegym:
 - [Online store](http://shop.junglegym.ai/)
-- [Gitlab](http://git.junglegym.ai/)
+- [Gitlab](http://git.junglegym.ai/) (You can create an account with a user and pwd)
 - [Social Forum](http://forum.junglegym.ai/)
 - [Wikipedia](http://wiki.junglegym.ai/)
-- [E-Commerce CMS](http://cms.junglegym.ai/)
+- [E-Commerce CMS](http://cms.junglegym.ai/) Admin panel (cms.junglegym.ai/admin) u: admin, pwd: admin1234
 - [Map](http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:3000/)
 ''')
 

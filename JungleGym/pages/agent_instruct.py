@@ -56,8 +56,9 @@ st.subheader('Description')
 
 st.markdown(
 '''
-AgentInstruct is a dataset for **training** (i.e. fine tuning) LLMs for use as web agents.
-It's designed for instruction tuning of open source LLMs like Llama2.
+AgentInstruct is a dataset for **training** (i.e. fine-tuning) LLMs for use as web agents.
+It's designed for instruction tuning of open source LLMs like Llama 2 (most LLMs haven't been trained with Agent data).
+
 It contains 1,866 trajectories across 6 categories of tasks. 
 Where a dataset like Mind2Web provides ground truth for successful agent execution, AgentInstruct provides instructions (i.e. rationale) to help LLMs understand *how* to achieve the task successfully.
 
