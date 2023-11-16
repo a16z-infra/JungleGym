@@ -11,7 +11,7 @@ https://github.com/a16z-infra/JungleGym/assets/5958899/3493f7b0-2ac0-4d46-ade4-2
 
 ## 🧠 Project overview
 
-JungleGym is an open-source playground for testing and developing autonomous web agents. This is not an agent, but rather a tool to test and build agents with datasets. It's designed primarily for agent builders.
+JungleGym is an open-source playground for testing and developing autonomous web agents. This is not an agent, but rather a set of tools and datasets for developers building agents. It's designed primarily for agent builders.
 
 Here, you can download demonstration data and test your agents with ground-truth trajectories and correct results. These datasets are all available in the [JungleGym API](https://docs.junglegym.ai/junglegym/) and in the [JungleGym playground](https://junglegym.ai).
 
