@@ -85,7 +85,7 @@ def welcome():
     We're hosting 3 datasets:
     - **Mind2Web**: Ground truth for ~2k tasks across 137 websites, including full HTML page states and screenshots. Good for *broad* testing and development across a range of sites and tasks.
     - **WebArena**: 6 realistic, fully functional, sandboxed web sites. Good for *deep* testing of many tasks and paths on a single site.
-    - **AgentInstruct**: ~1.8k agent trajectories designed for fine-tuning language models (i.e. LLaMA2, Mistral, etc) on agent tasks.
+    - **AgentInstruct**: ~1.8k agent trajectories designed for fine-tuning language models (i.e. Llama2, Mistral, etc) on agent tasks.
 
     We're also sharing one tool:
     - **TreeVoyager**: An LLM-based DOM parser that returns the best URL HTML/DOM element to interact with given a task (e.g. 'buy coffee').
