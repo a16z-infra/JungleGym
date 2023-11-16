@@ -60,7 +60,7 @@ We're hosting 3 web agent datasets (available in the API and in Junglegym): Mind
    import requests
    import json
    """
-   Get the task from the WebArena dataset page in junglegym.ai/WebArena (or from the API)
+   Get the desired task from the WebArena dataset page in junglegym.ai/WebArena (or from the API)
    Desired task details:
    Website = 'http://shop.junglegym.ai' (WebArena's sandboxed emulated shopping website)
    Task = "What is the price range for products from ugreen?"
