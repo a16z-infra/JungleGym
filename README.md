@@ -79,7 +79,7 @@ We're hosting 3 web agent datasets (available in the API and in the [JungleGym](
    ```
    
 
-5. AgentInstruct: ~1.8k agent trajectories designed for fine-tuning language models (i.e. llama2) on agent tasks. Unlike Mind2Web and WebArena, this dataset is in the form of a conversation chat LLM (from: 'gpt'/'human'). It was introduced with [AgentTuning](https://arxiv.org/abs/2310.12823). Ideally used for fine-tuning your LLM.
+5. AgentInstruct: ~1.8k agent trajectories designed for fine-tuning language models (i.e. llama2) on agent tasks. Unlike Mind2Web and WebArena, this dataset is in the form of a conversation chat LLM (from: 'gpt'/'human'). It was introduced with [AgentTuning](https://arxiv.org/abs/2310.12823). Ideally used for fine-tuning your LLM (as currently, most LLMs haven't been trained with Agent datasets/trajectories)
 
 6. TreeVoyager: An LLM-based DOM parser (using GPT-4 Turbo) designed to implement some principles from the papers ['Tree of Thoughts'](https://arxiv.org/abs/2305.10601) (ToT) and ['Minecraft's Voyager'](https://arxiv.org/abs/2305.16291) to parse the right HTML element, generate curriculum (plan), and generate suggested code for every step in the agent trajectory. Note: this is not an Agent, it's only an LLM parser in in very early development, and we would be keen to hear your feedback or contributions.
 
