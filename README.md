@@ -17,7 +17,7 @@ JungleGym is an open-source playground for testing and developing autonomous web
 
 ### ✅ Instructions and sample code:
 
-We're hosting 3 web agent datasets (available in the API and in Junglegym): Mind2Web, WebArena, and AgentInstruct to test your Agents with.
+We're hosting 3 web agent datasets (available in the API and in the [JungleGym](https://junglegym.ai)): Mind2Web, WebArena, and AgentInstruct to test your Agents with.
 
 1. Mind2Web: Ground truth for ~2k tasks across 137 websites, including full HTML page states and screenshots. Good for broad testing and development across a range of sites and tasks.
    Here is how you can use the Mind2Web Dataset API to test your Agent with the ground truth. You can find the website, task, and annotation ID in [JungleGym](https://junglegym.ai/Mind2Web) or in the API.
