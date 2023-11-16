@@ -118,53 +118,53 @@ We're hosting 3 web agent datasets (available in the API and in the [JungleGym](
    Given the length of an example of this code, you can find the API example in the file "TreeVoyager_Example.py" or in this [Replit](https://replit.com/@mmascorro1/TreeVoyager-DOM-Parser-Example?v=1)
 
 
-## Additional Resources (optional read):
+## 📚 Additional Resources (optional read):
 
-#### 🌲 TreeVoyager in-depth:
+#### TreeVoyager in-depth:
 
 - **Purpose**: TreeVoyager is an LLM-based DOM parser (using GPT-4 Turbo) as described above. The goal of the TreeVoyager's Streamlit page is to show how it works (step-by-step) and to visualize its outputs and suggested code for every step. You can also use it with the API.
 - The source code of TreeVoyager is in this repo under the TreeVoyager folder.
 - For instruction and documentation on how to use the TreeVoyager API, refer to the [docs](https://docs.junglegym.ai/junglegym/api-documentation/treevoyager-api).
-- #### How does TreeVoyager work?
+- How does TreeVoyager work?
 <div align="center">
   <img src="https://github.com/a16z-infra/JungleGym/blob/main/TreeVoyagerBlockSimple.png" width="40%">
 </div>
 
-- #### Inside TreeVoyager:
+- Inside TreeVoyager:
 <div align="center">
   <img src="https://github.com/a16z-infra/JungleGym/blob/main/JungleGym/pages/ImageTreeVoyager.png" width="60%">
 </div>
 
----
+
 ## 🔖 Version:
 
 0.9.0 (Experimental) - November 2023
 - This project is under development. Contributions are welcome!
+
   
----
 ## 👥 Authors:
 
 - Marco Mascorro - [@mascobot](https://twitter.com/Mascobot)
 - Matt Bornstein - [@BornsteinMatt](https://twitter.com/BornsteinMatt)
 
----
+
 ## 🔮 Future Work & Contributions:
 
 - JungleGym is a very early release. We expect this to be an ongoing project that adds new features and improvements. 
 - We think Vision will be a key component for web agents in the future. Once Large Multimodal Models (LMMs) become more powerful and accessible, we think they will heavily contribute to the web agents field, whether it is a combination of HTML/DOM interaction with assisted vision or purely vision-based.
 - We would be keen to hear from you and from your contributions! This is just a small project to help the Agents ecosystem.
   
----
+
 ## 📔 Acknowledgements:
 
 - Special thanks to the authors of Mind2Web, WebArena, Tree of Thoughts, Voyager and AgentTuning; and to a16z-infra, and the entire open-source community.
   
----
+
 ## Disclaimer:
 
 - This is an experimental version of JungleGym, TreeVoyager, and their tools. Use at your own risk. While the app has been tested, the authors hold no liability for any kind of losses arising out of using this application.
 - This tool is not designed for CAPTCHA bypass. Always consult a website's Terms of Service (ToS) before use.
 
----
+
 ## 🪪 License:
 JungleGym and TreeVoyager are under the permissive Apache 2.0 license. Please refer to the License Agreement for the datasets and tools used with Mind2Web, WebArena, AgentInstruct, etc.
