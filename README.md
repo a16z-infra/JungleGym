@@ -116,7 +116,7 @@ We're hosting 3 web agent datasets (available in the API and in the [JungleGym](
    **In simpler terms:** It works by having you provide a task (e.g., 'buy coffee') on a website, and it returns the HTML/DOM element that your agent should interact with. It also generates a suggested curriculum (a plan) to accomplish the task, and suggested code for each step for the agent.
    Note: this is not an Agent, it's only a tool/LLM parser in very early development.
    
-   Given the length of an example of this code, you can find it the API example in the file "TreeVoyager_Example.py" or in this [Replit](https://replit.com/@mmascorro1/TreeVoyager-DOM-Parser-Example?v=1)
+   Given the length of an example of this code, you can find the API example in the file "TreeVoyager_Example.py" or in this [Replit](https://replit.com/@mmascorro1/TreeVoyager-DOM-Parser-Example?v=1)
 
 
 ---
