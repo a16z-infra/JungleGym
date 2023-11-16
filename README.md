@@ -81,7 +81,7 @@ We're hosting 3 web agent datasets (available in the API and in the [JungleGym](
    ```
    
 
-5. AgentInstruct: ~1.8k agent trajectories designed for fine-tuning language models (i.e. llama2) on agent tasks. Unlike Mind2Web and WebArena, this dataset is in the form of a conversational/chat LLM (from: 'gpt'/'human'). It was introduced with [AgentTuning](https://arxiv.org/abs/2310.12823). Ideally used for fine-tuning your LLM (most LLMs haven't been trained with Agent datasets/trajectories). ([One click run in Replit](https://replit.com/@mmascorro1/AgentInstruct-Dataset-fetch-example?v=1))
+5. AgentInstruct: ~1.8k agent trajectories designed for fine-tuning language models (i.e. llama2) on agent tasks. Unlike Mind2Web and WebArena, this dataset is in the form of a conversational/chat LLM (from: 'gpt'/'human'). It was introduced with [AgentTuning](https://arxiv.org/abs/2310.12823). Ideally used for fine-tuning your LLM (most LLMs haven't been trained with Agent datasets/trajectories). ([One click run in Replit](https://replit.com/@mmascorro1/AgentInstruct-Dataset-fetch-example?v=1)):
    ```python
    import requests
    import json
