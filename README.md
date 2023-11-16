@@ -113,10 +113,10 @@ We're hosting 3 web agent datasets (available in the API and in the [JungleGym](
 
 7. TreeVoyager: An LLM-based DOM parser (using GPT-4 Turbo) designed to implement some principles from the papers ['Tree of Thoughts'](https://arxiv.org/abs/2305.10601) (ToT) and ['Minecraft's Voyager'](https://arxiv.org/abs/2305.16291).
 
-   **In simpler terms:** the way it works is you provide a task to it (e.x. "buy coffee") on a website and it returns the HTML/DOM element of the page your (agent) should interact with.
+   **In simpler terms:** the way it works is you provide a task to it (e.g. "buy coffee") on a website and it returns the HTML/DOM element of the page your (agent) should interact with.
    It also generates a curriculum (a plan) and suggested code for every step for your agent. Note: this is not an Agent, it's only a tool/LLM parser in very early development.
    
-   Given the length of an example of this code, you can find an example in the file "TreeVoyager_Example.py" or in this (Replit)[https://replit.com/@mmascorro1/TreeVoyager-Example?v=1]
+   Given the length of an example of this code, you can find an example in the file "TreeVoyager_Example.py" or in this [Replit](https://replit.com/@mmascorro1/TreeVoyager-Example?v=1)
 
 
 ---
