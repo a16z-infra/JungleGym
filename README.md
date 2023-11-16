@@ -104,8 +104,7 @@ We're hosting 3 web agent datasets (available in the API and in the [JungleGym](
    
    print("Number of total conversations:", len(data['data']))
    
-   print(data['data'][1000]
-         ['conversations'])  #This will get the 1000th conversation
+   print(data['data'][1000]['conversations'])  #This will get the 1000th conversation
    
    print(
        data['data'][1000]['id']
