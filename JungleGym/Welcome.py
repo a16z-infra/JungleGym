@@ -67,7 +67,7 @@ def welcome():
     video_html = """
     <div style="display: flex; justify-content: center; padding-bottom: 20px;">
         <iframe width="776" height="432" 
-        src="https://player.vimeo.com/video/884175093?h=5940f18c2c&amp;autoplay=1&amp;badge=0&amp;autopause=0&amp;quality_selector=1&amp;player_id=0&amp;app_id=58479" 
+        src="https://player.vimeo.com/video/885186258?h=be3d2b842d&amp;badge=0&amp;autopause=0&amp;quality_selector=1&amp;player_id=0&amp;app_id=58479" 
         frameborder="0" 
         allow="autoplay; fullscreen; picture-in-picture" 
         title="JungleGym Demo"></iframe>
