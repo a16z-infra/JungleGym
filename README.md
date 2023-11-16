@@ -82,8 +82,37 @@ We're hosting 3 web agent datasets (available in the API and in the [JungleGym](
    
 
 5. AgentInstruct: ~1.8k agent trajectories designed for fine-tuning language models (i.e. llama2) on agent tasks. Unlike Mind2Web and WebArena, this dataset is in the form of a conversational/chat LLM (from: 'gpt'/'human'). It was introduced with [AgentTuning](https://arxiv.org/abs/2310.12823). Ideally used for fine-tuning your LLM (most LLMs haven't been trained with Agent datasets/trajectories)
+```python
+import requests
+import json
+"""
+Get the full AgentInstruct dataset with ~1.8K trajectories/conversations:
+"""
+#List of "ids" (categories in the dataset):
+"""
+"os" (Operating System)
+"webshop"
+"mind2web"
+"kg" (Knowledge Graph)
+"db" (Database)
+"alfworld"
+"""
+#AgentInstruct API's endpoint to get ground truth result given a task:
+url = f"http://api.junglegym.ai/load_agent_instruct"
+response = requests.get(url)  #this gets the full ~1.8K dataset
+data = response.json()
 
-6. TreeVoyager: An LLM-based DOM parser (using GPT-4 Turbo) designed to implement some principles from the papers ['Tree of Thoughts'](https://arxiv.org/abs/2305.10601) (ToT) and ['Minecraft's Voyager'](https://arxiv.org/abs/2305.16291) to parse the right HTML element, generate curriculum (plan), and generate suggested code for every step in the agent trajectory. Note: this is not an Agent, it's only an LLM parser in very early development. We would be keen to hear your feedback or contributions.
+print("Number of total conversations:", len(data['data']))
+
+print(data['data'][1000]
+      ['conversations'])  #This will get the 1000th conversation
+
+print(
+    data['data'][1000]['id']
+)  #The id (category) of the 1000th conversation. In this case "alfworld_267" (ALFWorld, index=267)
+```
+
+7. TreeVoyager: An LLM-based DOM parser (using GPT-4 Turbo) designed to implement some principles from the papers ['Tree of Thoughts'](https://arxiv.org/abs/2305.10601) (ToT) and ['Minecraft's Voyager'](https://arxiv.org/abs/2305.16291) to parse the right HTML element, generate curriculum (plan), and generate suggested code for every step in the agent trajectory. Note: this is not an Agent, it's only an LLM parser in very early development. We would be keen to hear your feedback or contributions.
 
 
 ---
