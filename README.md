@@ -2,29 +2,27 @@
 ![JungleGym Logo](https://github.com/a16z-infra/JungleGym/blob/main/JungleGymLogo.png)
 
 ---
-
-✨ An Open Source Playground with Agent Datasets and APIs for building and testing your own Autonomous Web Agents 💫
+✨ An open source playground with agent datasets and APIs for building and testing your own autonomous web agents 💫
 
 ---
 
 https://github.com/a16z-infra/JungleGym/assets/5958899/3493f7b0-2ac0-4d46-ade4-21be778b7fc7
 
----
 
-## 🧠 Project Overview:
+## 🧠 Project overview
 
-JungleGym is an open-source playground for testing and developing autonomous web agents. To be clear, this is not an Agent, but rather a tool to test and build agents with datasets. Here, you can download demonstration data and test your agents with ground-truth trajectories and correct results (using the JungleGym APIs). These Datasets are all available in the JungleGym API and in the [JungleGym](https://junglegym.ai) playground, including 6 realistic, fully functional, sandboxed websites (from WebArena) to test your Agents.
+JungleGym is an open-source playground for testing and developing autonomous web agents. This is not an agent, but rather a tool to test and build agents with datasets. It's designed primarily for agent builders.
 
-Who is this for? Primarily for agent builders.
+Here, you can download demonstration data and test your agents with ground-truth trajectories and correct results. These datasets are all available in the [JungleGym API](https://docs.junglegym.ai/junglegym/) and in the [JungleGym playground](https://junglegym.ai).
 
-### ✅ Instructions and sample code:
 
-We're hosting 3 web agent datasets (available in the API and in the [JungleGym](https://junglegym.ai)): Mind2Web, WebArena, and AgentInstruct to test your Agents with.
+## ✅ Instructions and sample code
 
-1. Mind2Web: Ground truth for ~2k tasks across 137 websites, including full HTML page states and screenshots. Good for broad testing and development across a range of sites and tasks.
-   Here is how you can use the Mind2Web Dataset API to test your Agent with the ground truth. You can find the website, task, and annotation ID in [JungleGym](https://junglegym.ai/Mind2Web) or in the API.
+### Datasets
 
-   Mind2Web [API endpoints docs](https://docs.junglegym.ai/junglegym/api-documentation/mind2web-api)
+We're hosting 3 web agent datasets (available in the API and in the [JungleGym](https://junglegym.ai)): Mind2Web, WebArena, and AgentInstruct.
+
+1. **Mind2Web**: Ground truth for ~2k tasks across 137 websites, including full HTML page states and screenshots. Good for broad testing and development across a range of sites and tasks. You can filter for relevant websites, tasks, and annotation IDs in the [playground](https://junglegym.ai/Mind2Web) and access the full data via the [API](https://docs.junglegym.ai/junglegym/api-documentation/mind2web-api).
    
    Here is an example to get the ground truth actions of one task to compare your agent with. ([One click run in Replit](https://replit.com/@mmascorro1/Example-of-how-to-use-the-Mind2Web-Dataset?v=1)):
    ```python
@@ -52,10 +50,8 @@ We're hosting 3 web agent datasets (available in the API and in the [JungleGym](
    print ("HTML Element data for this first step:", data['actions'][0]['pos_candidates'])#-> These are the extended DOM elements of the first action.
    ```
 
-3. WebArena: A task dataset and 6 realistic, fully functional, sandboxed websites. Good for deep testing of many tasks and paths on a single site.
-   You can find a desired website, task, and task_id in [JungleGym](https://junglegym.ai/WebArena) or in the API.
-   
-   WebArena [API endpoints docs](https://docs.junglegym.ai/junglegym/api-documentation/webarena-api).
+3. **WebArena**: A task dataset and 6 realistic, fully functional, sandboxed websites. Good for deep testing of many tasks and paths on a single site.
+   You can find a desired website, task, and task_id in the [playground](https://junglegym.ai/WebArena) or in the [API](https://docs.junglegym.ai/junglegym/api-documentation/webarena-api).
    
    Here is an example of how to get a WebArena task and the final ground truth response. Unlike Mind2Web which shows every step in the DOM, WebArena only shows the final ground truth response. ([One click run in Replit](https://replit.com/@mmascorro1/WebArena-API-Task-Example?v=1)):
    ```python
@@ -81,7 +77,7 @@ We're hosting 3 web agent datasets (available in the API and in the [JungleGym](
    ```
    
 
-5. AgentInstruct: ~1.8k agent trajectories designed for fine-tuning language models (i.e. llama2) on agent tasks. Unlike Mind2Web and WebArena, this dataset is in the form of a conversational/chat LLM (from: 'gpt'/'human'). It was introduced with [AgentTuning](https://arxiv.org/abs/2310.12823). Ideally used for fine-tuning your LLM (most LLMs haven't been trained with Agent datasets/trajectories). ([One click run in Replit](https://replit.com/@mmascorro1/AgentInstruct-Dataset-fetch-example?v=1)):
+4. **AgentInstruct**: ~1.8k agent trajectories designed for fine-tuning language models (i.e. llama2) on agent tasks. Unlike Mind2Web and WebArena, this dataset is in the form of a conversational/chat LLM (from: 'gpt'/'human'). It was introduced with [AgentTuning](https://arxiv.org/abs/2310.12823). Ideally used for fine-tuning your LLM (most LLMs haven't been trained with Agent datasets/trajectories). ([One click run in Replit](https://replit.com/@mmascorro1/AgentInstruct-Dataset-fetch-example?v=1)):
    ```python
    import requests
    import json
@@ -111,15 +107,17 @@ We're hosting 3 web agent datasets (available in the API and in the [JungleGym](
    )  #The id (category) of the 1000th conversation. In this case "alfworld_267" (ALFWorld, index=267)
    ```
 
-7. TreeVoyager: An LLM-based DOM parser (using GPT-4 Turbo) designed to implement some principles from the papers ['Tree of Thoughts'](https://arxiv.org/abs/2305.10601) (ToT) and ['Minecraft's Voyager'](https://arxiv.org/abs/2305.16291).
+### Tools
 
-   **In simpler terms:** It works by having you provide a task (e.g., 'buy coffee') on a website, and it returns the HTML/DOM element that your agent should interact with. It also generates a suggested curriculum (a plan) to accomplish the task, and suggested code for each step for the agent.
-   Note: this is not an Agent, it's only a tool/LLM parser in very early development.
+4. **TreeVoyager**: An LLM-based DOM parser (using GPT-4 Turbo) designed to implement some principles from the papers ['Tree of Thoughts'](https://arxiv.org/abs/2305.10601) (ToT) and ['Minecraft's Voyager'](https://arxiv.org/abs/2305.16291).
+
+   If you provide a task to TreeVoyager (e.g., 'buy coffee') and a website URL, it will return the HTML/DOM element that your agent should interact with. It also generates a suggested curriculum (a plan) to accomplish the task, and suggested code for each step for the agent. It's much easier to understand this if you play with it in the [playground](https://www.junglegym.ai/TreeVoyager%20(DOM%20Parser)).
+
+   Note: This is not a full agent, it's only a tool/LLM parser in very early development. It's meant to help agent developers solve the DOM parsing portion of their pipeline.
    
    Given the length of an example of this code, you can find the API example in the file "TreeVoyager_Example.py" or in this [Replit](https://replit.com/@mmascorro1/TreeVoyager-DOM-Parser-Example?v=1)
 
 
----
 ## Additional Resources (optional read):
 
 #### 🌲 TreeVoyager in-depth:
