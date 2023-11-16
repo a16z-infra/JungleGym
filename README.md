@@ -7,7 +7,7 @@
 
 ---
 
-https://github.com/a16z-infra/JungleGym/assets/5958899/db0d6613-e95e-48c7-98ee-c8cc79030382
+https://github.com/a16z-infra/JungleGym/assets/5958899/3493f7b0-2ac0-4d46-ade4-21be778b7fc7
 
 ---
 
