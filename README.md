@@ -26,6 +26,7 @@ Here's an easy-to-follow WebArena API example for verifying whether your web age
    How to test your agent with WebArena's sandboxed emulated shopping website:
    Website = 'http://shop.junglegym.ai' (WebArena's sandboxed emulated shopping website)
    Task (from WebArena) = "What is the price range for products from ugreen?"
+   (You can get the full list of WebArena tasks from JungleGym)
    """
    
    WebArena_task = 'What is the price range for products from ugreen?'
