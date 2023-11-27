@@ -18,7 +18,30 @@ Here, you can download demonstration data and test your agents with ground-truth
 
 ## ✅ Instructions and sample code
 
-### Datasets
+Here's an easy-to-follow WebArena API example for verifying whether your web agent has produced the correct response:
+   ```python
+   import requests
+   import json
+   """
+   How to test your agent with WebArena's sandboxed emulated shopping website:
+   Website = 'http://shop.junglegym.ai' (WebArena's sandboxed emulated shopping website)
+   Task (from WebArena) = "What is the price range for products from ugreen?"
+   """
+   
+   WebArena_task = 'What is the price range for products from ugreen?'
+   
+   ##Here goes your own code to implement your agent to interact with the WebArena's sandboxed emulated shopping website:
+   
+   ##After your agent has finished interacting with the WebArena's sandboxed emulated shopping website, compare your agent's response with the ground truth result from the WebArena API:
+   #Get ground truth result given a task:
+   response = requests.get(f"http://api.junglegym.ai/get_webarena_by_task?task={WebArena_task}")
+   data = response.json()
+   #This will give the final ground truth result for the task to compare with your Web agent's response. For this task the correct response should be: ['6.99', '38.99']
+   print(data['data'][0]['eval']['reference_answers']['must_include'])  
+   ```
+
+
+### All Datasets:
 
 We're hosting 3 web agent datasets (available in the API and in the [JungleGym](https://junglegym.ai)): Mind2Web, WebArena, and AgentInstruct.
 
