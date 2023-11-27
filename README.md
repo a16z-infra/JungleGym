@@ -131,7 +131,7 @@ We're hosting 3 web agent datasets (available in the API and in the [JungleGym](
    )  #The id (category) of the 1000th conversation. In this case "alfworld_267" (ALFWorld, index=267)
    ```
 
-### Tools
+### Tools (beta release)
 
 4. **TreeVoyager**: An LLM-based DOM parser (using GPT-4 Turbo) designed to implement some principles from the papers ['Tree of Thoughts'](https://arxiv.org/abs/2305.10601) (ToT) and ['Minecraft's Voyager'](https://arxiv.org/abs/2305.16291).
 
