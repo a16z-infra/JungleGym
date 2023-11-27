@@ -18,7 +18,7 @@ Here, you can download demonstration data and test your agents with ground-truth
 
 ## ✅ Instructions and sample code:
 
-Here's an easy-to-follow WebArena API example for verifying whether your web agent has produced the correct response:
+Here's an easy-to-follow WebArena API example in Python for verifying whether your web agent has produced the correct response:
    ```python
    import requests
    import json
