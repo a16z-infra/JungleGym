@@ -305,7 +305,7 @@ if st.session_state['running']:
         with st.spinner('Generating response for first step...'):
             for result in run_task(task=task, url=url, curriculum=None, prev_code=None, step_name=None):
                 if 'actionable_elements' in result:
-                    html_interactable_elements_placeholder.markdown(f"### Interactable HTML elements on page:")
+                    html_interactable_elements_placeholder.markdown(f"### Interactable HTML elements on this page:")
                     df_elements = result['actionable_elements']
                     st.session_state['actionable_elements'] = df_elements
                     table1_placeholder.dataframe(df_elements)
