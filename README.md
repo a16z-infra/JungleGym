@@ -31,9 +31,10 @@ Here's an easy-to-follow WebArena API example for verifying whether your web age
    
    WebArena_task = 'What is the price range for products from ugreen?'
    
-   ##Here goes your own code to implement your agent to interact with the WebArena's sandboxed emulated shopping website:
+   ####Here goes your own code to implement your agent to interact with the WebArena's sandboxed emulated shopping website:
    #You could use the TreeVoyager tool to parse the DOM or use your own logic/DOM parser
-   ##After your agent has finished interacting with the WebArena's sandboxed emulated shopping website, compare your agent's response with the ground truth result from the WebArena API:
+
+   ####After your agent has finished interacting with the WebArena's sandboxed emulated shopping website, compare your agent's response with the ground truth result from the WebArena API:
    #Get ground truth result given a task:
    response = requests.get(f"http://api.junglegym.ai/get_webarena_by_task?task={WebArena_task}")
    data = response.json()
