@@ -340,7 +340,11 @@ if st.session_state['running']:
         print ('Running again!')
         curriculum = st.session_state['curriculum']
         prev_code = st.session_state['step_code']
-        step_name = st.session_state['step_list'][st.session_state['counter']]
+        if st.session_state['counter'] < len(st.session_state['step_list']):
+            step_name = st.session_state['step_list'][st.session_state['counter']]
+        else:
+            # handle the error or reset the counter
+            print("Counter exceeds the length of step_list.")
         task_ = st.session_state['task']
         url_ = st.session_state['url']
         loading_message = st.text('Generating response for step {}...'.format(str(st.session_state['counter'] + 1)))
