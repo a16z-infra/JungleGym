@@ -317,12 +317,16 @@ if st.session_state['running']:
                     st.session_state['step_name'] = result['step_name']
                     step_name_placeholder.subheader('Step ' + result['step_name'])
                 if 'step_list' in result:
-                    st.session_state['step_list'] = result['step_list']
-                    try:
-                        next_step = result['step_list'][st.session_state['counter'] +1]
-                    except ValueError:
-                        next_step = "Step not found in curriculum"
-                        print("Step not found in curriculum")        
+                    if st.session_state['counter'] + 1 < len(result['step_list']):
+                        st.session_state['step_list'] = result['step_list']
+                        try:
+                            next_step = result['step_list'][st.session_state['counter'] + 1]
+                        except ValueError:
+                            next_step = "Step not found in curriculum"
+                            print("Step not found in curriculum")   
+                    else:
+                        #next_step = "Step not found in curriculum"
+                        print("Step not found in curriculum")    
                 if 'step_code' in result:
                     st.session_state['step_code'] = result['step_code']
                     code_title_placeholder.markdown('##### Step ' + st.session_state['step_name'])
