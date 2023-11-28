@@ -29,7 +29,7 @@ init_page()
 BASE_DIR = os.path.dirname(os.getcwd())
 API_ENDPOINT = 'http://api.junglegym.ai'
 TREE_VOYAGER_SERVER_ENDPOINT = 'https://treevoyager.junglegym.ai'
-
+TREE_VOYAGER_SERVER_ENDPOINT = 'http://127.0.0.1:8000'
 st.title("🌳 TreeVoyager")
 
 st.subheader('Description')
@@ -299,7 +299,7 @@ if st.session_state['running']:
     else:
         print ("Same URL, using previous screenshot", url)
         image_placeholder.image(st.session_state['image_path'], caption="Page screenshot for this step", width=1000)
-        html_interactable_elements_placeholder.markdown(f"#### Interactable HTML elements on page:")
+        html_interactable_elements_placeholder.markdown(f"#### Interactable HTML elements on this page:")
         table1_placeholder.dataframe(st.session_state['actionable_elements'])
     if st.session_state['counter'] == 0:#if it is the first time running:
         with st.spinner('Generating response for first step...'):
@@ -348,9 +348,10 @@ if st.session_state['running']:
         task_ = st.session_state['task']
         url_ = st.session_state['url']
         loading_message = st.text('Generating response for step {}...'.format(str(st.session_state['counter'] + 1)))
+        print ("HERE THE STEP NAME", step_name)
         for result in run_task(task=task_, url=url_, curriculum=curriculum, prev_code=prev_code, step_name=step_name):
             if 'actionable_elements' in result and url != st.session_state['url']:
-                html_interactable_elements_placeholder.markdown(f"#### Interactable HTML elements for this page:")
+                html_interactable_elements_placeholder.markdown(f"#### Interactable HTML elements on this page:")
                 df_elements = result['actionable_elements']
                 st.session_state['actionable_elements'] = df_elements
                 table1_placeholder.dataframe(df_elements)
@@ -370,15 +371,10 @@ if st.session_state['running']:
                 table2_placeholder.table(pd.DataFrame(result['info_data'], index=[0]))
         loading_message.text('Done generating response for step {}.'.format(str(st.session_state['counter'] + 1)))
         st.session_state['counter'] += 1
-        next_step = st.session_state['step_list'][st.session_state['counter']]
+        try:
+            next_step = st.session_state['step_list'][st.session_state['counter']]
+        except IndexError:
+            print("Finished with steps")
+            next_step = "Done"
     next_step_input_placeholder.text_input('Next step (leave blank to keep original step from curriculum):', placeholder=next_step, key="next_step_name")
     next_step_button_placeholder.button(f"Run Step {st.session_state['counter']+1}")
-    
-
-
-
-
-
-
-
-
