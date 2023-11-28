@@ -187,7 +187,7 @@ We're hosting 3 web agent datasets (available in the API and in the [JungleGym](
 
 ## Disclaimer:
 
-- This is an experimental version of JungleGym, TreeVoyager, and their tools. Use at your own risk. While the app has been tested, the authors hold no liability for any kind of losses arising out of using this application.
+- The versions of JungleGym, TreeVoyager, and the tools presented here are experimental and intended solely for educational purposes. Use at your own risk. While the app has been tested, the authors hold no liability for any kind of losses arising out of using this application.
 - This tool is not designed for CAPTCHA bypass. Always consult a website's Terms of Service (ToS) before use.
 
 
