@@ -85,6 +85,7 @@ Choose either a pre-loaded WebArena testing environment & task, or enter a custo
 After clicking the 'Start' button, TreeVoyager will attempt to generate a curriculum for the given web page and task, showing:
 a screenshot of the page state; a table of "interactable" HTML elements; a suggested curriculum to execute the task; and sample Selenium code to execute the curriculum.
 At each step, you can change the suggested action.
+\nPlease refresh the page to start again (or if you get an exception with session).
 ''')
 
 st.markdown("<a name='top'></a>", unsafe_allow_html=True)
@@ -378,3 +379,4 @@ if st.session_state['running']:
             next_step = "Done"
     next_step_input_placeholder.text_input('Next step (leave blank to keep original step from curriculum):', placeholder=next_step, key="next_step_name")
     next_step_button_placeholder.button(f"Run Step {st.session_state['counter']+1}")
+    
