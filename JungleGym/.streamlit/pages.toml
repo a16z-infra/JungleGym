@@ -30,5 +30,5 @@ is_section = true
 
 [[pages]]
 path = "pages/treevoyager.py"
-name = "TreeVoyager (DOM Parser)"
+name = "TreeVoyager (LLM DOM Parser)"
 icon = "🌳"
