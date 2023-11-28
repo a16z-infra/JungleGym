@@ -29,7 +29,6 @@ init_page()
 BASE_DIR = os.path.dirname(os.getcwd())
 API_ENDPOINT = 'http://api.junglegym.ai'
 TREE_VOYAGER_SERVER_ENDPOINT = 'https://treevoyager.junglegym.ai'
-TREE_VOYAGER_SERVER_ENDPOINT = 'http://127.0.0.1:8000'
 st.title("🌳 TreeVoyager")
 
 st.subheader('Description')
