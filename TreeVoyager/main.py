@@ -95,7 +95,7 @@ def curriculum_generator(website, task, actionable_elements, model=MODEL):
     dict: A dictionary containing the generated curriculum, total tokens used, duration, and model used.
     """
     start_time = time.perf_counter()
-    preprompt1 = f"You've successfully navigated to {website} using the Selenium webdriver (that means you to need to give instructions to navigate to the website anymore). You also have a list of dictionaries of the HTML elements.\n\nYou have being assigned the task: {task}.\n\nWhat are the Selenium steps you would execute to successfully accomplish the task? Only describe the specific steps in Python's Selenium to select the right HTML id or HTML field_name value and action. Indicate them step by step giving Selenium instructions to write the python code. Do no create names or ids.\n\nFor the initial HTML page, here is a parsed list of dictionaries with key and value of the HTML id, attributes, field_name, link and other fields for every single HTML element. Each dictionary contains additional context information of each element. In Selenium, when selecting an HTML element for an action, you can use the Selenium's methods 'By.ID' if the best element for the action has the 'id' key in the dictionary, 'By.NAME' if the best element for the action has the 'field_name' key in the dictionary and so on. You can also use other Selenium methods, but please use all information in the dictionary to make the best assessment to select the best HTML element and best method to make the task successful: \n\n {actionable_elements}"
+    preprompt1 = f"You've successfully navigated to {website} using the Selenium WebDriver (that means you to need to give instructions to navigate to the website anymore).\n\nYou have being assigned the task: '{task}'.\n\nWhat are the steps you would execute in Selenium to successfully accomplish the task? Only describe the specific steps in Python's Selenium with the precise HTML 'id' or HTML 'field_name' or 'link' or 'href' value and action. Indicate the instructions step by step giving the instructions to a Selenium developer to write the python code. Do no create names or ids.\n\nFor the initial HTML page, here is a full list of dictionaries with key and value pairs of the HTML id, field_name, links and other fields for every single HTML element. Each dictionary contains additional context information of each element. In Selenium, when selecting an HTML element for an action, you can use the Selenium's methods 'By.ID' if the best element for the action has the 'id' key in the dictionary, 'By.NAME' if the best element for the action has the 'field_name' key in the dictionary and so on. Avoid using the 'tag_name' ('By.TAG_NAME') as tag names are too generic and multiple elements have the same tag name. You can also use other Selenium methods (for example to get an 'href'), but please use all information in the HTML element to make the best assessment to select the best HTML elements and best Selenium's methods to make the task successful: \n\n {actionable_elements}"
     message_history=[
             {"role": "system", "content": "You are a helpful and smart software engineer using python's Selenium"},
             {"role": "user", "content": preprompt1}]
@@ -192,9 +192,12 @@ def get_pos_candidates_branch(website, task, curriculum, actionable_elements, st
     start_time = time.perf_counter()
     #actionable_elements = json.dumps(actionable_elements)
     enumerated_elements = "\n".join([f"{i+1}. {element}" for i, element in enumerate(actionable_elements)])
-    preprompt = f"You want to accomplish this task: {task} in this website: {website} and you are following this guide:\n\n{curriculum}.\n\nFor the step: {step}, What is the best HTML 'id' or 'field_name', or 'tag_name' to select from the following dictionary list?\n\nDo not explain. Only respond with the exact 'id' or 'field_name' or 'tag_name' value from the following list of dictionaries, where each dictionary, contains additional information for each 'id', 'field_name' and 'tag_name': \n\n {enumerated_elements}"
+    elements = "\n".join([f"- {element}" for element in actionable_elements])
+    #elements = "\n".join(str(element) for element in actionable_elements)
+    #print ("Elements: ", elements)
+    preprompt = f"You want to accomplish this task: {task} in this website: {website}\n\nFrom the following list with dictionaries of HTML elements, what is the best HTML 'id' or 'field_name' or 'link' or 'href' candidate value from a dictionary for the step: '{step}'?\n\n {elements}\n\nDo not explain. Only respond with the exact 'id' or 'field_name' or 'href' or 'link' value from the dictionary, do not include the key. Each line is an HTML element that contains additional context for the HTML element."
     message_history = [
-        {"role": "system", "content": f"You are an intelligent programmer using python's Selenium. You are helping a colleague select an HTML 'id' or HTML 'field_name' value saved in a list of dictionaries. You must not lie or make up 'id' or 'field_name' values. You only select an 'id' or 'field_name' value from the list of dictionaries."},
+        {"role": "system", "content": f"You are an intelligent programmer using python's Selenium. You are helping a colleague select the best candidate value in a dictionary that has HTML 'id' or HTML 'field_name' or HTML 'href' or 'link' value saved in a list of dictionaries. You must not lie or make up values. You only select an 'id' or 'field_name' or 'link' or 'href' value from the list of dictionaries."},
         {"role": "user", "content": preprompt}
     ]
     response = openai.ChatCompletion.create(model=model, messages=message_history, temperature=0.0)
@@ -206,12 +209,13 @@ def get_pos_candidates_branch(website, task, curriculum, actionable_elements, st
         return {'response': response, 'message_history': message_history, 'total_tokens': total_tokens, 'duration': duration, 'model': model}
     # CoT implementation:
     message_history.append({"role": "assistant", "content": response})
-    message_history.append({"role": "user", "content": f"Is this 'id' or 'field_name' value in the list of dictionaries the best value for the given task? Check the list of dictionaries again. Here it is: \n{actionable_elements}\n. Only respond with the 'id' or 'field_name' value and do not explain."})
+    message_history.append({"role": "user", "content": f"Is this 'id' or 'field_name' or 'link' or 'href' value in the list of dictionaries the best value for the given task? Check the list of dictionaries again. Here it is: \n{actionable_elements}\n. Only respond with the 'id' or 'field_name' or 'link' or 'href' value and do not explain."})
     response = openai.ChatCompletion.create(model=model, messages=message_history, temperature=0.0)
     total_tokens = response['usage']['total_tokens']
     response = response['choices'][0]['message']['content'].strip('.').strip("'").strip('"')
     end_time = time.perf_counter()
     duration = round(end_time - start_time, 2)
+    print ("YResponse", response)
     return {'response': response, 'message_history': message_history, 'total_tokens': total_tokens, 'duration': duration, 'model': model}
 
 def tree_thought_generation(website, task, curriculum, actionable_elements, CoT, branches, step, model=MODEL):
@@ -337,16 +341,17 @@ def semiose_vetter(actionable_elements, query, embeddings_model='thenlper/gte-ba
     return {'id_result': result_list[0]['id'], 'duration':duration, 'embeddings_model':embeddings_model}
 
 def code_generator(website, step_name, step_html_id, prev_code, model=MODEL):
+    print("Here the code step name: ", step_name)
     now_utc = datetime.now(pytz.timezone('UTC'))
     now_pacific = now_utc.astimezone(pytz.timezone('US/Pacific'))
     time = now_pacific.strftime('%H:%M, %d-%m-%Y')
     if prev_code != None:
-        preprompt1 = f"Write the python code to execute in Selenium the following step: {step_name}, on the website {website}.\n\nThis is the codebase that was used to execute previous steps on this page, please incorporate it with your solution without missing any of the previous steps in the code: {prev_code}\n\nThe HTML id or HTML field_name to use with this code is: {step_html_id}.\n\nOnly respond with the code to perform the step. Do not explain. Do not create HTML ids or HTML field_names, only use the one provided. If the HTML element says 'id' then use Selenium's method 'By.ID', if the element says 'field_name' then use Selenium's 'By.NAME' and so on. Use your best assessment for every HTML element to decide what Selenium method to use. At the top of the code, after the '```python', write the comments: '#Suggested code generated by JungleGym to incorporate with your Agent. Generated at (hr:min, day-month-year) Pacific Time: {time}"
+        preprompt1 = f"Write the python code to execute in Selenium the following step: '{step_name}', on the website {website}.\n\nThis is the codebase that was used to execute previous steps on this page, please incorporate it with your solution without missing any of the previous steps in the code:\n\n{prev_code}\n\nThe HTML element for this step to interact with is: {step_html_id}.\n\nOnly respond with the code to perform the step. Do not explain. Do not create HTML ids or HTML field_names, only use the one provided. If the HTML element contains 'id' then use Selenium's method 'By.ID', if the element contains 'field_name' then use Selenium's 'By.NAME' and so on. Avoid using 'By.TAG_NAME' as tag names are too generic and multiple elements have the same tag name. Use your best assessment for every HTML element to decide what Selenium method to use. At the top of the code, after the '```python', write the comments: '#Suggested code generated by JungleGym to incorporate with your Agent. Generated at (hr:min, day-month-year) Pacific Time: {time}"
     else:
         if "cms.junglegym.ai" not in website:
-            preprompt1 = f"Write the python code to execute in Selenium the following step: {step_name}, on the website {website}.\n\nThe HTML id or HTML field_name to use with this code is: {step_html_id}.\n\nOnly respond with the code to perform the task. Do not explain. Do not create HTML ids or HTML field_names, only use the one provided. If the HTML element says 'id' then use Selenium's method 'By.ID', if the element says 'field_name' then use Selenium's 'By.NAME' and so on. Use your best assessment for every HTML element to decide what Selenium method to use. At the top of the code, after the '```python', write the comments: '#Suggested code generated by JungleGym to incorporate with your Agent. Generated at (hr:min, day-month-year) Pacific Time: {time}"
+            preprompt1 = f"Write the python code to execute in Selenium the following step: '{step_name}', on the website {website}.\n\nThe HTML element for this step to interact with is: {step_html_id}.\n\nOnly respond with the code to perform the task. Do not explain. Do not create HTML ids or HTML field_names, only use the one provided. If the HTML element contains 'id' then use Selenium's method 'By.ID', if the element contains 'field_name' then use Selenium's 'By.NAME' and so on. Avoid using 'By.TAG_NAME' as tag names are too generic and multiple elements have the same tag name. Use your best assessment for every HTML element to decide what Selenium method to use. At the top of the code, after the '```python', write the comments: '#Suggested code generated by JungleGym to incorporate with your Agent. Generated at (hr:min, day-month-year) Pacific Time: {time}"
         else:
-            preprompt1 = f"Write the python code to execute in Selenium the following step: {step_name}, on the website {website}.\n\nIf you need to login to the website, the username is 'admin' and the password is 'admin1234'\n\nThe HTML id or HTML field_name to use with this code is: {step_html_id}.\n\nOnly respond with the code to perform the task. Do not explain. Do not create HTML id or HTML field_name values, only use the one provided. If the HTML element says 'id' then use Selenium's method 'By.ID', if the element says 'field_name' then use Selenium's 'By.NAME' and so on. Use your best assessment for every HTML element to decide what Selenium method to use. At the top of the code, after the '```python', write the comments: '#Suggested code generated by JungleGym to incorporate with your Agent. Generated at (hr:min, day-month-year) Pacific Time: {time}"
+            preprompt1 = f"Write the python code to execute in Selenium the following step: '{step_name}', on the website {website}.\n\nIf you need to login to the website, the username is 'admin' and the password is 'admin1234'\n\nThe HTML element for this step to interact with is: {step_html_id}.\n\nOnly respond with the code to perform the task. Do not explain. Do not create HTML ids or HTML field_names, only use the one provided. If the HTML element contains 'id' then use Selenium's method 'By.ID', if the element contains 'field_name' then use Selenium's 'By.NAME' and so on. Avoid using 'By.TAG_NAME' as tag names are too generic and multiple elements have the same tag name. Use your best assessment for every HTML element to decide what Selenium method to use. At the top of the code, after the '```python', write the comments: '#Suggested code generated by JungleGym to incorporate with your Agent. Generated at (hr:min, day-month-year) Pacific Time: {time}"
     message_history=[
             {"role": "system", "content": "You are a helpful and smart python developer using python's Selenium. You only respond with python code. You are only using the chrome driver."},
             {"role": "user", "content": preprompt1}]
@@ -523,8 +528,6 @@ def skill_search(query, website, embeddings_model='thenlper/gte-base'):
 def chain_generator(website_name, task, curriculum, actionable_elements, step, prev_code):
     tot_response = tree_thought_generation(website=website_name, task=task, curriculum=curriculum, actionable_elements=actionable_elements, branches=3, step=step, CoT=False)
     exact_id = tot_response['response']['response']#Comment this line if you want to use the semiose_vetter (and comment the next line)
-    if len(exact_id) > 20:#If it's too long, most likely it's not an id.
-        return None
     #exact_id = semiose_vetter(actionable_elements=actionable_elements, query=tot_response['response'])['id_result']#Search for the exact ID with semantic search in case it hallucinated.
     total_step_tokens = tot_response['total_tokens']
     print ('HTML element for this step: ', exact_id)
@@ -538,6 +541,8 @@ def chain_generator(website_name, task, curriculum, actionable_elements, step, p
         for key, value in dictionary.items():
             if value ==exact_id:
                 exact_id = f"{key}: {value}"
+                print ('Found exact id from list of dicts: ', exact_id)
+    print ('step_html_id going into code: ', exact_id)
     code = code_generator(website=website_name, step_name=step, step_html_id=exact_id, prev_code=prev_code)['response']
     step_metadata = {'step_name': step, 'step_html_id': exact_id, 'step_html_tag_name': tag_name, 'step_html_field_name': field_name, 'step_code': code, 'total_step_tokens': total_step_tokens, 'number_of_branches': tot_response['number_of_branches'], 'branch_stats': tot_response['branch_stats']}
     return {'step_metadata':step_metadata}
@@ -579,7 +584,7 @@ async def run_task(request: Request, task: str = 'buy the cheapest coffee with b
                 step_duration = round(end_time - start_time, 2)
                 result = {
                     "curriculum": curriculum,
-                    "step_name": step_name,
+                    "step_name": 'No HTML id found for this step.',
                     "step_list": step_list,
                     "step_code": 'No HTML id found for this step.',
                     "step_html_id": 'No HTML id found for this step.',
