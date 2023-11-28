@@ -250,6 +250,7 @@ curriculum_placeholder = st.empty()
 step_name_placeholder = st.empty()
 code_title_placeholder = st.empty()
 code_placeholder = st.empty()
+elements_title_placeholder = st.empty()
 table2_placeholder = st.empty()
 next_step_input_placeholder = st.empty()
 next_step_button_placeholder = st.empty()
@@ -333,6 +334,7 @@ if st.session_state['running']:
                     code_placeholder.code(result['step_code'], language='python')
                 if 'info_data' in result:
                     st.session_state['info_data'] = result['info_data']
+                    elements_title_placeholder.markdown('##### Elements for this step:')
                     table2_placeholder.table(pd.DataFrame(result['info_data'], index=[0]))
         st.session_state['counter'] += 1
     else:#If it is not the first time running:
