@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Main scrip to run all services in JungleGym
+Main script to run all services in JungleGym
 ======================
 
 This is the main script to start all services required in JungleGym. This is the only script that the user should run to start the project.

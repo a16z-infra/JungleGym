@@ -4,3 +4,4 @@ skill_classification.py
 *.ipynb
 .ipynb_checkpoints/
 *.ipynb_checkpoints
+__pycache__

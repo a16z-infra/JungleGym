@@ -27,10 +27,8 @@ def sidebar_footer():
     # sidebar.markdown("<a style='text-decoration:none;' href='https://arxiv.org/abs/2308.03688'><font size=3>AgentBench Paper</font></a>", unsafe_allow_html=True)
     st.sidebar.markdown('**by a16z Infra**')
 
-def init_page():
-    # Set page title page config:
-    st.set_page_config(page_title="JungleGym", page_icon="🦉", layout="wide")
-
+@st.cache_data()
+def main_layout():
     # Set config for a cleaner menu, footer & background:
     hide_streamlit_style = """
                 <style>
@@ -56,3 +54,10 @@ def init_page():
 
     # show the footer
     sidebar_footer()
+
+
+def init_page():
+    # Set page title page config:
+    st.set_page_config(page_title="JungleGym", page_icon="🦉", layout="wide")
+
+    main_layout()
